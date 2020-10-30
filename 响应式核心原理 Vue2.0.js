@@ -3,7 +3,7 @@
  * @LastEditors: xinghe
  * @Date: 2020-10-30 22:09:13
  * @FilePath: /fe-interview/响应式核心原理 Vue2.0.js
- * @LastEditTime: 2020-10-30 22:24:20
+ * @LastEditTime: 2020-10-30 22:25:32
  * @symbol_custom_string_obkoro: 不想有bug xinghe@gaoding.com
  */
 
@@ -23,7 +23,7 @@ let data = {
 
 //模拟初始化
 function init(obj) {
-    // 获取所有key  {name:'',age:''} =>['name','key']
+    // 获取所有key  {name:'',age:''} =>['name','age']
     const keys = Object.keys(obj)
     for (let i = 0; i < keys.length; i++) {
         // 监听
