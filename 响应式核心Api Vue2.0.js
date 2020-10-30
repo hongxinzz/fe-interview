@@ -3,7 +3,7 @@
  * @LastEditors: xinghe
  * @Date: 2020-10-30 22:09:13
  * @FilePath: /fe-interview/响应式核心原理 Vue2.0.js
- * @LastEditTime: 2020-10-30 22:25:32
+ * @LastEditTime: 2020-10-30 22:33:10
  * @symbol_custom_string_obkoro: 不想有bug xinghe@gaoding.com
  */
 
@@ -15,19 +15,18 @@
 
 // 组件内data
 let data = {
-    name: '',
-    age: ''
-}
-
-
+    name: "",
+    age: "",
+};
 
 //模拟初始化
 function init(obj) {
     // 获取所有key  {name:'',age:''} =>['name','age']
-    const keys = Object.keys(obj)
+    const keys = Object.keys(obj);
+    this.renderDom(obj);
     for (let i = 0; i < keys.length; i++) {
         // 监听
-        defineReactive(obj, keys[i])
+        defineReactive(obj, keys[i]);
     }
 }
 
@@ -37,15 +36,28 @@ function defineReactive(obj, key) {
         enumerable: true, //可遍历
         configurable: true, // 可配置 可以删除 替换
         get(val) {
-            return val
+            return val;
         },
         set(newVal) {
-            document.querySelector(key).innerHtml = newVal
-        }
-    })
+            document.querySelector(`#${key}`).innerHTML = newVal;
+        },
+    });
 }
 
-init(data)
+// 生成dom
 
-data.age = 1;
-data.name = 'xinghe';
+function renderDom(obj) {
+    const keys = Object.keys(obj);
+    const fragment = document.createDocumentFragment();
+    for (let i = 0; i < keys.length; i++) {
+        const div = document.createElement("div");
+        div.setAttribute("id", keys[i]);
+        fragment.append(div);
+    }
+    document.body.append(fragment);
+}
+
+init(data);
+
+data.age = 23;
+data.name = "xinghe";
