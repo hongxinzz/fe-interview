@@ -17,19 +17,19 @@ function promiseOnce(stacks) {
     })
 }
 
-function sleepFn(){
-    return function(){
+function sleepFn() {
+    return function () {
         const time = arguments[0];
-        return new Promise((resolve,reject)=>{
-            setTimeout(()=>{
-               resolve(time)
-            },time)
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(time)
+            }, time)
         })
     }
 }
 
 const sleep = sleepFn();
 
-promiseOnce([sleep(2000),sleep(1000),sleep(3000)]).then(data=>{
+promiseOnce([sleep(2000), sleep(1000), sleep(3000)]).then(data => {
     console.log(data)
 })

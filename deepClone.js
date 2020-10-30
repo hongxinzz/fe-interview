@@ -22,7 +22,7 @@ function deepClone(obj) {
 }
 
 
-const test = { a: 1, b: 2, c: { d: 1 }, d: function () { },  e: null, time: new Date(), regexp: /.png/ };
+const test = { a: 1, b: 2, c: { d: 1 }, d: function () { }, e: null, time: new Date(), regexp: /.png/ };
 
 deepClone(test)
 

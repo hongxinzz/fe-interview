@@ -3,7 +3,7 @@
  * @LastEditors: xinghe
  * @Date: 2020-10-30 12:17:23
  * @FilePath: /fe-interview/single.js
- * @LastEditTime: 2020-10-30 12:25:59
+ * @LastEditTime: 2020-10-30 14:57:58
  * @symbol_custom_string_obkoro1: 不想有bug xinghe@gaoding.com
  */
 
@@ -11,22 +11,22 @@
  * 单例模式
  */
 
-function StroageBase(){}
+function StroageBase() { }
 
 StroageBase.prototype = {
-    getItem:function(key){
+    getItem: function (key) {
         return window.localStorage.getItem(key)
     },
-    setItem:function(key,val){
-       return window.localStorage.setItem(key,JSON.stringify(val))
+    setItem: function (key, val) {
+        return window.localStorage.setItem(key, JSON.stringify(val))
     }
 }
 
-const Stroage = (function(){
+const Stroage = (function () {
     let instance = null;
-    return function(){
-        if(!instance){
-            instance  =  new StroageBase();
+    return function () {
+        if (!instance) {
+            instance = new StroageBase();
         }
         return instance
     }
@@ -35,7 +35,7 @@ const Stroage = (function(){
 const stroage = Stroage();
 const stroage1 = Stroage();
 
-stroage.setItem('test',123)
+stroage.setItem('test', 123)
 
 stroage.getItem('test') //123
 stroage1.getItem('test')//123
