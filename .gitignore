@@ -1,0 +1,4 @@
+.DS_Store
+.vuepress
+node_modules
+dist
